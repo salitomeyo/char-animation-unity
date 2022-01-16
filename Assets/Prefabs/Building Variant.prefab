@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371942570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -45,8 +45,8 @@ Transform:
   - {fileID: 8218309234466092530}
   - {fileID: 8218309234288142544}
   - {fileID: 8218309235215060046}
-  m_Father: {fileID: 6835681372016351993}
-  m_RootOrder: 6
+  m_Father: {fileID: 6698204144772761849}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1809438448
 GameObject:
@@ -9147,7 +9147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541540522267776833, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_Name
-      value: Building
+      value: Building Variant
       objectReference: {fileID: 0}
     - target: {fileID: 541540522544781837, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_LocalScale.y
@@ -13647,7 +13647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541540522774244917, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 541540522774244917, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_Textures0.Array.data[100].y
@@ -14811,7 +14811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541540522775307322, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 541540522775307322, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
       propertyPath: m_SelectedVertices.Array.data[0]
@@ -14914,6 +14914,11 @@ PrefabInstance:
 --- !u!4 &1643341099528872910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5733246996743359338, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
+  m_PrefabInstance: {fileID: 6439804151214991524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6698204144772761849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 408150741375230045, guid: 59b41f0b4ee3ae74c855af5fbfce40c5, type: 3}
   m_PrefabInstance: {fileID: 6439804151214991524}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6835681372016351993 stripped
