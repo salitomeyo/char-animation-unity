@@ -29,22 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(dir.normalized*dist);
         transform.Rotate(angle.normalized*rotationSpeed);
-
-        // if(Input.GetKey(KeyCode.D))
-        // {
-        //     transform.Translate(0, 0, movement);
-        // }
-        // if(Input.GetKey(KeyCode.A))
-        // {
-        //     transform.Translate(0, 0, -movement);
-        // }
-        // if(Input.GetKey(KeyCode.W))
-        // {
-        //     transform.Translate(-movement, 0, 0);
-        // }
-        // if(Input.GetKey(KeyCode.S))
-        // {
-        //     transform.Translate(movement, 0, 0);
-        // }
+        
+        GetComponent<Animator>().SetFloat("Run", horizontal);
+        GetComponent<Animator>().SetFloat("Walk", -horizontal);
     }
 }
