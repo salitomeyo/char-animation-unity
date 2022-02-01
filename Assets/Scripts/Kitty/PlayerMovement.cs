@@ -13,26 +13,31 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 360)]
     [Tooltip("Velocidad de la rotacion del personaje en grados/s")]
     private float rotationSpeed; 
-    // Update is called once per frame
+
     void Update()
     {
+        //cambio en la distancia en un seg
         float dist = speed*Time.deltaTime;
+        //cambio en la rotacion en un segundo
         float rotation = rotationSpeed*Time.deltaTime;
 
+        //Input.GetAxis accede a los Inputs definidos en projects settings > input manager
+        //Input.GetAxis devuelve valores entre -1 y 1
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = -Input.GetAxis("Vertical");
+        float vertical = Input.GetAxis("Vertical");
 
         float mouseX = Input.GetAxis("Mouse X");
         float jump = Input.GetAxis("Jump");
 
-        Vector3 dir = new Vector3(vertical, 0, horizontal);
+        //Vector direccion del movimiento
+        Vector3 dir = new Vector3(horizontal, 0, vertical);
+        //Vector angulo de rotacion
         Vector3 angle = new Vector3(0, mouseX, 0);
 
         transform.Translate(dir.normalized*dist);
         transform.Rotate(angle.normalized*rotationSpeed);
         
-        GetComponent<Animator>().SetFloat("Run", horizontal);
-        GetComponent<Animator>().SetFloat("Walk", -horizontal);
+        GetComponent<Animator>().SetFloat("Walk", Mathf.Abs(horizontal)+Mathf.Abs(vertical));
 
         if (jump > 0)
         {
