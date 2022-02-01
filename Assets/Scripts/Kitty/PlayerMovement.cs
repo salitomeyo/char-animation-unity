@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         float vertical = -Input.GetAxis("Vertical");
 
         float mouseX = Input.GetAxis("Mouse X");
+        float jump = Input.GetAxis("Jump");
 
         Vector3 dir = new Vector3(vertical, 0, horizontal);
         Vector3 angle = new Vector3(0, mouseX, 0);
@@ -32,5 +33,10 @@ public class PlayerMovement : MonoBehaviour
         
         GetComponent<Animator>().SetFloat("Run", horizontal);
         GetComponent<Animator>().SetFloat("Walk", -horizontal);
+
+        if (jump > 0)
+        {
+            GetComponent<Animator>().SetTrigger("Jump");
+        }
     }
 }
