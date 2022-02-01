@@ -10,40 +10,59 @@ git clone https://github.com/salitomeyo/char-animation-unity.git
 ```
 
 ## Paquetes principales
-<details>
-<summary> Ver </summary>
 
-* Animation Rigging (v1.0.3)
-* Cinemachine (v2.7.9)
-* ProBuilder (v5.0.3)
-* TextMeshPro (v3.0.6)
-* Visual Effect Graph (v11.0.0)
-* ...
+<details>
+  <summary> Unity Registry </summary>
+  
+  * Animation Rigging (v1.0.3)
+  * Cinemachine (v2.7.9)
+  * ProBuilder (v5.0.3)
+  * TextMeshPro (v3.0.6)
+  * Visual Effect Graph (v11.0.0)
+
+</details>
+
+<details>
+  <summary> Asset Store </summary>
+
+  * [Fantasy Tombs & Necropoly Lite](https://assetstore.unity.com/packages/3d/environments/fantasy/fantasy-tombs-necropoly-lite-205971)
+  * [Gambler Cat](https://assetstore.unity.com/packages/3d/characters/creatures/gambler-cat-20897)
+  * [Lowpoly Medieval Plague Doctor](https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/lowpoly-medieval-plague-doctor-free-pack-176809)
+  * [Low Polу Skeleton](https://assetstore.unity.com/packages/3d/characters/creatures/low-pol-skeleton-188865)
+  * [Lowpoly Dungeon Assets](https://assetstore.unity.com/packages/3d/environments/dungeons/lowpoly-dungeon-assets-117330)
+  * [Skybox Extended Shader](https://assetstore.unity.com/packages/vfx/shaders/free-skybox-extended-shader-107400)
 
 </details>
 
 ## Cómo jugar
-<details>
-<summary> Ver </summary>
 
 Para divertirse con este juego hay dos opciones, correrlo directamente en su equipo o acceder a él desde Unity Play para jugarlo en su navegador.
 
-### Descargar release
-Instrucciones de descarga y puesta en marcha...
+<details>
+  <summary> Descargar release </summary>
+  
+  Instrucciones de descarga y puesta en marcha...
+  
+</details>
 
-### Unity Play
-De click en este [link](https://www.youtube.com/watch?v=gLk8i2zw2jU) y a continuación...
+<details>
+  <summary> Unity Play </summary>
+  
+  De click en este [link](https://www.youtube.com/watch?v=gLk8i2zw2jU) y a continuación...
+  
+</details>
 
+<details>
+  <summary> Controles </summary>
+  
+  Para iniciar... moverse... magia-magia...
+  
 </details>
 
 ## Autores
-<details>
-<summary> Ver </summary>
 
 - [Salome Aristizabal](https://github.com/salitomeyo)
 - [Juan Pablo Ciro](https://github.com/JCiroLo)
 - [Ana Osorio](https://github.com/ana-os-mo)
-
-</details>
 
 ![Video](ReadmeFiles/test_gif.gif "Video")
