@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private PlayerShooting _playerShooting;
+    private float shootingDelay = 0;
+    private bool isShooting = false;
+    private void Awake() {
+        _playerShooting = GetComponent<PlayerShooting>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -12,7 +18,24 @@ public class PlayerController : MonoBehaviour
 
         if (mouseLeftButton != 0)
         {
-            GetComponent<Animator>().SetTrigger("Stun");
+            if (shootingDelay == 0)
+            {
+                GetComponent<Animator>().SetTrigger("Stun");
+                Debug.Log("Empieza a animar");
+                shootingDelay = Time.time+2.5f;
+                isShooting = true;
+            }
+        }
+
+        if (isShooting)
+        {
+            if (Time.time > shootingDelay)
+            {
+                Debug.Log("oeeee");
+                _playerShooting.createBullet();
+                isShooting = false;
+                shootingDelay = 0;
+            }
         }
         GetComponent<Animator>().SetFloat("Suction", mouseRightButton);
     }

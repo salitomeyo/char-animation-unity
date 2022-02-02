@@ -6,6 +6,7 @@ public class SkeletonController : MonoBehaviour
 {
     Animator animator;
     float startStun = 0;
+    float startSuction = 0;
     private Sight _sight;
     private bool isStuned;
 
@@ -24,13 +25,14 @@ public class SkeletonController : MonoBehaviour
     void Update()
     {
         stunControl();
+        suctionControl();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("oeeeeeeeeeee");
         if (other.name == "LightStun")
         {
-            animator.SetFloat("Walk", 0);
             startStun = Time.time;
             animator.SetTrigger("Stun");
             isStuned = true;
@@ -38,35 +40,26 @@ public class SkeletonController : MonoBehaviour
         if (other.name == "SuctionCollider")
         {
             animator.SetFloat("Suction", 1);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "SuctionCollider")
-        {
-            animator.SetFloat("Suction", 0);
+            startSuction = Time.time;
         }
     }
 
     private void stunControl()
     {
-        if (startStun == 0)
-        {
-            if (_sight.getTarget() != null)
-            {
-                animator.SetFloat("Walk", 1);
-            }
-            if (_sight.getTarget() == null && animator.GetFloat("Walk") == 1)
-            {
-                animator.SetFloat("Walk", 0);
-            }
-        }
-        if (Time.time > startStun+9.5)
+        if (Time.time > startStun+9)
         {
             animator.ResetTrigger("Stun");
             isStuned = false;
             startStun = 0;
+        }
+    }
+
+    private void suctionControl()
+    {
+        if (Time.time > startSuction+6.5)
+        {
+            animator.SetFloat("Suction", 0);
+            startSuction = 0;
         }
     }
 
