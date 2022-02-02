@@ -15,9 +15,11 @@ public class Sight : MonoBehaviour
     private float angle;
 
     [SerializeField]
+    [Tooltip("Layer en la que se encuentran los objetos que quiero detectar")]
     private LayerMask targetLayer;
 
     [SerializeField]
+    [Tooltip("Layer en la que se encuentran los objetos que quiero como obstaculos en la deteccion")]
     private LayerMask obstacleLayer;
 
     private Collider detectedTarget;
@@ -26,6 +28,7 @@ public class Sight : MonoBehaviour
     void Update()
     {
         detectedTarget = null;
+        //Lista de todos los colliders que estan dentro del rango de deteccion
         Collider[] colliders = Physics.OverlapSphere(transform.position, distance, targetLayer);
 
         foreach (Collider collider in colliders)
@@ -53,10 +56,13 @@ public class Sight : MonoBehaviour
         return detectedTarget;
     }
 
+    //Nos permite ver de forma grafica el rango de deteccion de los enemigos
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
+        //Dibuja una esfera basada en el distance definido
         Gizmos.DrawWireSphere(transform.position, distance);
 
+        //Dibuja dos lineas rectas dentro de la esfera que corresponden al angulo definido
         Vector3 rightDir = Quaternion.Euler(0, angle, 0)*transform.forward;
         Gizmos.DrawRay(transform.position, rightDir*distance);
 

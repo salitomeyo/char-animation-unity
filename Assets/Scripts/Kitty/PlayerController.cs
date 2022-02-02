@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseLeftButton = Input.GetAxis("Fire1");
-        float mouseRightButton = Input.GetAxis("Fire2");
+        Stun();
+        Suction();
+    }
 
+    void Stun ()
+    {
+        float mouseLeftButton = Input.GetAxis("Fire1");
         if (mouseLeftButton != 0)
         {
             if (shootingDelay == 0)
@@ -35,6 +39,11 @@ public class PlayerController : MonoBehaviour
                 shootingDelay = 0;
             }
         }
+    }
+
+    void Suction()
+    {
+        float mouseRightButton = Input.GetAxis("Fire2");
         GetComponent<Animator>().SetFloat("Suction", mouseRightButton);
     }
 }
