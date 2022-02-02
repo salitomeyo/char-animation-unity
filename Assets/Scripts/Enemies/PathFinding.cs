@@ -18,6 +18,7 @@ public class PathFinding : MonoBehaviour
 
     private void Update() {
         bool stun = _skeletonController.getStun();
+        Debug.Log(stun);
         if (_sight.getTarget() != null && !stun)
         {
             FollowPlayer();

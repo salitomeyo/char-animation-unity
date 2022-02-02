@@ -4819,9 +4819,10 @@ GameObject:
   - component: {fileID: 3099309603685352451}
   - component: {fileID: 3099309603685352452}
   - component: {fileID: -7115598888461082861}
+  - component: {fileID: 8884389733866561686}
   m_Layer: 3
   m_Name: LightStun 1
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4916,4 +4917,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb92bd44c8eb14aa2af1ec9f62ccba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.41
+  speed: 2
+--- !u!114 &8884389733866561686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099309603685352453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc06899fe2047614b8570f45f05a640e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

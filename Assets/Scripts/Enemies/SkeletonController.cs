@@ -30,8 +30,7 @@ public class SkeletonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("oeeeeeeeeeee");
-        if (other.name == "LightStun")
+        if (other.tag == "Bullet")
         {
             startStun = Time.time;
             animator.SetTrigger("Stun");

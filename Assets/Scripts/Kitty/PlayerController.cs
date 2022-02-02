@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
             if (shootingDelay == 0)
             {
                 GetComponent<Animator>().SetTrigger("Stun");
-                Debug.Log("Empieza a animar");
                 shootingDelay = Time.time+2.5f;
                 isShooting = true;
             }
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
         {
             if (Time.time > shootingDelay)
             {
-                Debug.Log("oeeee");
                 _playerShooting.createBullet();
                 isShooting = false;
                 shootingDelay = 0;
