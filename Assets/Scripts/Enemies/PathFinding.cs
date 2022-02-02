@@ -10,14 +10,13 @@ public class PathFinding : MonoBehaviour
 
     private void Awake() {
         _sight = GetComponent<Sight>();
-        agent = GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update() {
         if (_sight.getTarget() != null)
         {
-            Debug.Log("te vi");
             FollowPlayer();
         }
     }
