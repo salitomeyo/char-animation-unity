@@ -19,9 +19,9 @@ public class PathFinding : MonoBehaviour
         agent.SetDestination(playerTransform.position);
     }
 
-    //Usa setDestination asignando la posicion de si mismo para parar
+    //Elimina el destino, detiene al enemigo
     public void StopFollow()
     {
-        agent.SetDestination(transform.position);
+        agent.ResetPath();
     }
 }

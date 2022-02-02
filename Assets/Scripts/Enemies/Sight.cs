@@ -23,6 +23,7 @@ public class Sight : MonoBehaviour
     private LayerMask obstacleLayer;
 
     private Collider detectedTarget;
+    private Vector3 directionToCollider;
 
     // Update is called once per frame
     void Update()
@@ -31,10 +32,15 @@ public class Sight : MonoBehaviour
         //Lista de todos los colliders que estan dentro del rango de deteccion
         Collider[] colliders = Physics.OverlapSphere(transform.position, distance, targetLayer);
 
+        detectTarget(colliders);
+    }
+
+    private void detectTarget(Collider[] colliders)
+    {
         foreach (Collider collider in colliders)
         {
             //vector direccion entre el collider y el enemigo transform
-            Vector3 directionToCollider = Vector3.Normalize(collider.bounds.center - transform.position);
+            directionToCollider = Vector3.Normalize(collider.bounds.center - transform.position);
 
             float angleToCollider = Vector3.Angle(directionToCollider, transform.forward);
 
@@ -49,6 +55,14 @@ public class Sight : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void FaceTarget()
+    {
+        // Vector3 lookPos = destination - transform.position;
+        directionToCollider.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(directionToCollider);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1f);  
     }
 
     public Collider getTarget()

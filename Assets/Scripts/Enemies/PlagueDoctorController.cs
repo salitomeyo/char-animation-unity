@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonController : MonoBehaviour
+public class PlagueDoctorController : MonoBehaviour
 {
     Animator animator;
     float stopStun = 0;
@@ -27,12 +27,8 @@ public class SkeletonController : MonoBehaviour
     void Update()
     {
         walkControl();
-        stunControl();
-        suctionControl();
-        if (animator.GetFloat("Suction") == 1)
-        {
-            _sight.FaceTarget();
-        }
+        // stunControl();
+        // suctionControl();
     }
 
     //Se llama cuando un gameobject con collider tipo trigger entra en contacto con el collider
@@ -51,32 +47,31 @@ public class SkeletonController : MonoBehaviour
             stopSuction = Time.time+6.5f;
             //activa la animacion de suction
             animator.SetFloat("Suction", 1);
-            _sight.FaceTarget();
             isStuned = true;
         }
     }
 
-    //Controla el reset de la animacion de stun
-    private void stunControl()
-    {
-        if (Time.time > stopStun && stopStun != 0)
-        {
-            animator.ResetTrigger("Stun");
-            isStuned = false;
-            stopStun = 0;
-        }
-    }
+    // //Controla el reset de la animacion de stun
+    // private void stunControl()
+    // {
+    //     if (Time.time > stopStun && stopStun != 0)
+    //     {
+    //         animator.ResetTrigger("Stun");
+    //         isStuned = false;
+    //         stopStun = 0;
+    //     }
+    // }
 
-    //Controla el reset de la animacion de suction
-    private void suctionControl()
-    {
-        if (Time.time > stopSuction && stopSuction != 0)
-        {
-            animator.SetFloat("Suction", 0);
-            isStuned = false;
-            stopSuction = 0;
-        }
-    }
+    // //Controla el reset de la animacion de suction
+    // private void suctionControl()
+    // {
+    //     if (Time.time > stopSuction && stopSuction != 0)
+    //     {
+    //         animator.SetFloat("Suction", 0);
+    //         isStuned = false;
+    //         stopSuction = 0;
+    //     }
+    // }
 
     private void walkControl()
     {
@@ -84,12 +79,12 @@ public class SkeletonController : MonoBehaviour
         if (_sight.getTarget() != null && !isStuned)
         {
             _pathFinding.FollowPlayer();
-            animator.SetFloat("Walk", 1);
+            // animator.SetFloat("Walk", 1);
         }
         //detiene el path finding al player cuando el skeleton esta siendo atacado
         if (isStuned){
             _pathFinding.StopFollow();
-            animator.SetFloat("Walk", 0);
+            // animator.SetFloat("Walk", 0);
         }
     }
 }
