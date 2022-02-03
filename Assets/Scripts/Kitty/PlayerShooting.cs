@@ -15,10 +15,14 @@ public class PlayerShooting : MonoBehaviour
 
     private GameObject bullet;
 
+    [SerializeField]
+    [Tooltip("El punto del que saldran los proyectiles")]
+    private GameObject shootingPoint;
+
     // Update is called once per frame
     public void createBullet()
     {
-        bullet = Instantiate(prefab, new Vector3(transform.position.x+0.3f, transform.position.y+0.45f, transform.position.z), transform.rotation);
+        bullet = Instantiate(prefab, new Vector3(shootingPoint.transform.position.x, shootingPoint.transform.position.y, shootingPoint.transform.position.z), shootingPoint.transform.rotation);
         Destroy(bullet, bulletLifeTime);
     }
 

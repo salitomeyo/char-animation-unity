@@ -72,6 +72,11 @@ public class Sight : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1f);  
     }
 
+    public void RunFromTarget()
+    {
+        Debug.Log("adso");
+    }
+
     public float GetDistance()
     {
         return distanceToCollider;

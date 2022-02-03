@@ -19,6 +19,12 @@ public class PathFinding : MonoBehaviour
         agent.SetDestination(playerTransform.position);
     }
 
+    public void RunFromPlayer() {
+        float randomAngle = Random.Range(0f, 360f);
+        Vector3 randomDestination = new Vector3((Mathf.Cos(randomAngle)*playerTransform.position.x-Mathf.Sin(randomAngle)*playerTransform.position.z), playerTransform.position.y, (Mathf.Sin(randomAngle)*playerTransform.position.x+Mathf.Cos(randomAngle)*playerTransform.position.z));
+        agent.SetDestination(randomDestination*2);
+    }
+
     //Elimina el destino, detiene al enemigo
     public void StopFollow()
     {

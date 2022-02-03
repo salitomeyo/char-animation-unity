@@ -71,7 +71,7 @@ public class SkeletonController : MonoBehaviour
     //Controla el reset de la animacion de suction
     private void suctionControl()
     {
-        if (Time.time > stopSuction && stopSuction != 0)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("skeleton_dead_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
         {
             animator.SetFloat("Suction", 0);
             isStuned = false;
