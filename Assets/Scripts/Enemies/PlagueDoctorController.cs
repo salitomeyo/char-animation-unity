@@ -49,9 +49,8 @@ public class PlagueDoctorController : MonoBehaviour
         {
             stopSuction = Time.time+2f;
             //activa la animacion de suction
-            //animator.SetFloat("Suction", 1);
-            _pathFinding.RunFromPlayer();
-            _sight.FaceTarget();
+            animator.SetFloat("Suction", 1);
+            isStuned = true;
         }
     }
 
@@ -69,6 +68,11 @@ public class PlagueDoctorController : MonoBehaviour
     //Controla el reset de la animacion de suction
     private void suctionControl()
     {
+        if (stopSuction != 0 && stopSuction-Time.time  < 1.5f && stopSuction-Time.time  > 1.48f)
+        {
+            _pathFinding.RunFromPlayer();
+        }
+
         if (Time.time > stopSuction && stopSuction != 0 || (animator.GetCurrentAnimatorStateInfo(0).IsName("plaguedoctor_suction_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)))
         {
             animator.SetFloat("Suction", 0);
