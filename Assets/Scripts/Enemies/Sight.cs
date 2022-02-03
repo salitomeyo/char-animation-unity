@@ -24,15 +24,22 @@ public class Sight : MonoBehaviour
 
     private Collider detectedTarget;
     private Vector3 directionToCollider;
+    private float distanceToCollider = 100;
 
     // Update is called once per frame
     void Update()
     {
         detectedTarget = null;
+        distanceToCollider = 100;
         //Lista de todos los colliders que estan dentro del rango de deteccion
         Collider[] colliders = Physics.OverlapSphere(transform.position, distance, targetLayer);
 
         detectTarget(colliders);
+
+        if (detectedTarget != null)
+        {
+            distanceToCollider = Mathf.Sqrt((Mathf.Pow((transform.position.x-detectedTarget.bounds.center.x), 2f))+(Mathf.Pow((transform.position.z-detectedTarget.bounds.center.z), 2f)));
+        }
     }
 
     private void detectTarget(Collider[] colliders)
@@ -63,6 +70,11 @@ public class Sight : MonoBehaviour
         directionToCollider.y = 0;
         Quaternion rotation = Quaternion.LookRotation(directionToCollider);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1f);  
+    }
+
+    public float GetDistance()
+    {
+        return distanceToCollider;
     }
 
     public Collider getTarget()

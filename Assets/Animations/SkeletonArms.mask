@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SkeletonArms
+  m_Mask: 01000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Bone_Back_1
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_L_1
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_L_1/Bone_Hand_L_2
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_L_1/Bone_Hand_L_2/Bone_Hand_L_3
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_L_1/Bone_Hand_L_2/Bone_Hand_L_3/BoneEnd_Hand_L_4
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_L_1/LowPolySkeleton_SholderL
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1/Bone_Hand_R_2
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1/Bone_Hand_R_2/Bone_Hand_R_3
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1/Bone_Hand_R_2/Bone_Hand_R_3/BoneEnd_Hand_R_4
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1/Bone_Hand_R_2/Bone_Hand_R_3/BoneEnd_Hand_R_4/LowPolySkeleton_Sword
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/Bone_Hand_R_1/LowPolySkeleton_SholderR
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/BoneEnd_Back_4
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/BoneEnd_Back_4/Bone_Head_1
+    m_Weight: 1
+  - m_Path: Bone_Back_1/Bone_Back_2/Bone_Back_3/BoneEnd_Back_4/Bone_Head_1/BoneEnd_Head_2
+    m_Weight: 1
+  - m_Path: Bone_Back_1/LowPolySkeleton_Edge
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1
+    m_Weight: 0
+  - m_Path: Bone_Pelvis_1/Bone_L_Leg_3
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_L_Leg_3/Bone_L_Leg_4
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_L_Leg_3/Bone_L_Leg_4/BoneEnd_L_Leg_5
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_L_Leg_3/Bone_L_Leg_4/BoneEnd_L_Leg_5/Bone_L_Foot_1
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_L_Leg_3/Bone_L_Leg_4/BoneEnd_L_Leg_5/Bone_L_Foot_1/BoneEnd_L_Foot_2
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_R_Leg_3
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_R_Leg_3/Bone_R_Leg_4
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_R_Leg_3/Bone_R_Leg_4/Bone_R_Foot_1
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_R_Leg_3/Bone_R_Leg_4/Bone_R_Foot_1/BoneEnd_R_Foot_2
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/Bone_R_Leg_3/Bone_R_Leg_4/BoneEnd_R_Leg_5
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/BoneEnd_L_Leg_1
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/BoneEnd_L_Leg_1/Bone_L_Leg_2
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/BoneEnd_Pelvis_2
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/BoneEnd_R_Leg_1
+    m_Weight: 1
+  - m_Path: Bone_Pelvis_1/BoneEnd_R_Leg_1/Bone_R_Leg_2
+    m_Weight: 1
+  - m_Path: LowPolySkeleton
+    m_Weight: 1

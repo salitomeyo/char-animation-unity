@@ -27,6 +27,7 @@ public class SkeletonController : MonoBehaviour
     void Update()
     {
         walkControl();
+        attackControl();
         stunControl();
         suctionControl();
         if (animator.GetFloat("Suction") == 1)
@@ -78,18 +79,35 @@ public class SkeletonController : MonoBehaviour
         }
     }
 
+    private void attackControl()
+    {
+        if ((_sight.GetDistance() > 1f && _sight.GetDistance() != 100f) || isStuned || (animator.GetCurrentAnimatorStateInfo(0).IsName("Strike_2") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)))
+        {
+            animator.SetFloat("Attack", 0);
+        }
+    }
+
     private void walkControl()
     {
         //Si el player o alguno de sus ataques entra en el rango de vision activa el path finding a la posicion del player
-        if (_sight.getTarget() != null && !isStuned)
+        if (_sight.getTarget() != null && !isStuned && _sight.GetDistance() > 1f && _sight.GetDistance() != 100f)
         {
             _pathFinding.FollowPlayer();
             animator.SetFloat("Walk", 1);
         }
+
         //detiene el path finding al player cuando el skeleton esta siendo atacado
-        if (isStuned){
+        if (isStuned || _sight.getTarget() == null || (_sight.GetDistance() < 1f && _sight.GetDistance() != 100f))
+        {
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
+        }
+
+        if (_sight.GetDistance() < 1f && !isStuned)
+        {
+            _pathFinding.StopFollow();
+            animator.SetFloat("Walk", 0);
+            animator.SetFloat("Attack", 1);
         }
     }
 }
