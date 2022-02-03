@@ -20,11 +20,14 @@ public class PathFinding : MonoBehaviour
     }
 
     public void RunFromPlayer() {
-        // float randomAngle = Random.Range(0f, 360f);
-        // Vector3 randomDestination = new Vector3((Mathf.Cos(randomAngle)*playerTransform.position.x-Mathf.Sin(randomAngle)*playerTransform.position.z), playerTransform.position.y, (Mathf.Sin(randomAngle)*playerTransform.position.x+Mathf.Cos(randomAngle)*playerTransform.position.z));
-        // agent.SetDestination(randomDestination*2);
-        _sight.GetDirection();
-        agent.SetDestination(_sight.GetDirection()*-1*_sight.GetDistance());
+        //Definimos un angulo random, esto permitira que el teletransporte no vaya siempre en la misma direccion
+        float randomAngle = Random.Range(0f, 360f);
+        //obtenemos el vector direccion al collider
+        Vector3 direct = _sight.GetDirectionFromPlayer();
+        //Le realizamos al vector una transformacion de rotacion
+        Vector3 randomDestination = new Vector3((Mathf.Cos(randomAngle)*direct.x-Mathf.Sin(randomAngle)*direct.z), direct.y, (Mathf.Sin(randomAngle)*direct.x+Mathf.Cos(randomAngle)*direct.z));
+        //Translada (teletransporta) al gameObject en la direccion de randomDestination
+        agent.transform.Translate((randomDestination*2.5f));
     }
 
     //Elimina el destino, detiene al enemigo

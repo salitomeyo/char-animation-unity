@@ -24,6 +24,7 @@ public class Sight : MonoBehaviour
 
     private Collider detectedTarget;
     private Vector3 directionToCollider;
+    private Vector3 directionFromPlayer;
     private float distanceToCollider = 100;
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class Sight : MonoBehaviour
         foreach (Collider collider in colliders)
         {
             //vector direccion entre el collider y el enemigo transform
+            directionToCollider = Vector3.Normalize(transform.position - collider.bounds.center);
             directionToCollider = Vector3.Normalize(collider.bounds.center - transform.position);
 
             float angleToCollider = Vector3.Angle(directionToCollider, transform.forward);
@@ -73,6 +75,11 @@ public class Sight : MonoBehaviour
     }
 
     public Vector3 GetDirection()
+    {
+        return directionToCollider;
+    }
+
+    public Vector3 GetDirectionFromPlayer()
     {
         return directionToCollider;
     }

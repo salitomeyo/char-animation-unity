@@ -28,13 +28,10 @@ public class PlagueDoctorController : MonoBehaviour
     void Update()
     {
         walkControl();
+        suctionControl();
         attackControl();
         stunControl();
-        suctionControl();
-        if (animator.GetFloat("Suction") == 1)
-        {
-            _sight.FaceTarget();
-        }
+        _sight.FaceTarget();
     }
 
     //Se llama cuando un gameobject con collider tipo trigger entra en contacto con el collider
@@ -52,9 +49,9 @@ public class PlagueDoctorController : MonoBehaviour
         {
             stopSuction = Time.time+2f;
             //activa la animacion de suction
-            animator.SetFloat("Suction", 1);
+            //animator.SetFloat("Suction", 1);
+            _pathFinding.RunFromPlayer();
             _sight.FaceTarget();
-            isStuned = true;
         }
     }
 
