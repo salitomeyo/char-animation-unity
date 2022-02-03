@@ -90,43 +90,43 @@ public class PlagueDoctorController : MonoBehaviour
 
     private void walkControl()
     {
-        // //Si el player o alguno de sus ataques entra en el rango de vision activa el path finding a la posicion del player
-        // if (_sight.getTarget() != null && !isStuned && _sight.GetDistance() > 4f && _sight.GetDistance() != 100f)
-        // {
-        //     _pathFinding.FollowPlayer();
-        //     animator.SetFloat("Walk", 1);
-        // }
-
-        // //detiene el path finding al player cuando el skeleton esta siendo atacado
-        // if (isStuned || _sight.getTarget() == null || (_sight.GetDistance() < 3f && _sight.GetDistance() != 100f))
-        // {
-        //     _pathFinding.StopFollow();
-        //     animator.SetFloat("Walk", 0);
-        // }
-
-        // if (_sight.GetDistance() < 3f && _sight.GetDistance() >= 2.5f && !isStuned)
-        // {
-        //     _pathFinding.StopFollow();
-        //     animator.SetFloat("Walk", 0);
-        //     animator.SetFloat("Attack", 1);
-        // }
-
-        if (_sight.GetDistance() >= 4.5f && !isStuned)
+        //Si el player o alguno de sus ataques entra en el rango de vision activa el path finding a la posicion del player
+        if (_sight.getTarget() != null && !isStuned && _sight.GetDistance() > 4f && _sight.GetDistance() != 100f)
         {
-            animator.SetFloat("Walk", 0);
-            _pathFinding.StopFollow();
+            _pathFinding.FollowPlayer();
+            animator.SetFloat("Walk", 1);
         }
 
-        if (_sight.GetDistance() >= 4.5f && !isStuned && _sight.getTarget() != null)
+        //detiene el path finding al player cuando el skeleton esta siendo atacado
+        if (isStuned || _sight.getTarget() == null || (_sight.GetDistance() < 4f && _sight.GetDistance() != 100f))
         {
+            _pathFinding.StopFollow();
+            animator.SetFloat("Walk", 0);
+        }
+
+        if (_sight.GetDistance() < 4f && !isStuned)
+        {
+            _pathFinding.StopFollow();
+            animator.SetFloat("Walk", 0);
             animator.SetFloat("Attack", 1);
         }
 
-        if (_sight.GetDistance() < 2.5f && !isStuned && _sight.getTarget() != null)
-        {
-            Debug.Log("Huyamosss");
-            _pathFinding.RunFromPlayer();
-            animator.SetFloat("Walk", 1);
-        }
+        // if (_sight.GetDistance() >= 4.5f && !isStuned)
+        // {
+        //     animator.SetFloat("Walk", 0);
+        //     _pathFinding.StopFollow();
+        // }
+
+        // if (_sight.GetDistance() >= 4.5f && !isStuned && _sight.getTarget() != null)
+        // {
+        //     animator.SetFloat("Attack", 1);
+        // }
+
+        // if (_sight.GetDistance() < 2.5f && !isStuned && _sight.getTarget() != null)
+        // {
+        //     Debug.Log("Huyamosss");
+        //     _pathFinding.RunFromPlayer();
+        //     animator.SetFloat("Walk", 1);
+        // }
     }
 }
