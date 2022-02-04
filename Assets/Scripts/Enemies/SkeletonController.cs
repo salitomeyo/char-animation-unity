@@ -53,11 +53,14 @@ public class SkeletonController : MonoBehaviour
         }
         if (other.name == "SuctionCollider")
         {
-            stopSuction = Time.time+6.5f;
-            //activa la animacion de suction
-            animator.SetFloat("Suction", 1);
-            _sight.FaceTarget();
-            isStuned = true;
+            if (stopStun == 0)
+            {
+                stopSuction = Time.time+6.5f;
+                //activa la animacion de suction
+                animator.SetFloat("Suction", 1);
+                _sight.FaceTarget();
+                isStuned = true;
+            }
         }
     }
 
@@ -140,7 +143,7 @@ public class SkeletonController : MonoBehaviour
     {
         if (!isStuned && _sight.getTarget() == null)
         {
-            _pathFinding.WanderAbout();
+            _pathFinding.WanderAbout(3);
             animator.SetFloat("Walk", 1);
         }
     }

@@ -20,6 +20,7 @@ public class PlagueDoctorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("Wander", 0, 5);
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -32,7 +33,7 @@ public class PlagueDoctorController : MonoBehaviour
         attackControl();
         stunControl();
 
-        if (_sight.GetDistance() < 100)
+        if (_sight.GetDistance() < 100 && !isStuned)
         {
             _sight.FaceTarget();
         }
@@ -75,6 +76,7 @@ public class PlagueDoctorController : MonoBehaviour
         if (stopSuction != 0 && stopSuction-Time.time  < 1.5f && stopSuction-Time.time  > 1.48f)
         {
             _pathFinding.RunFromPlayer();
+            stopSuction = 0;
         }
 
         if (Time.time > stopSuction && stopSuction != 0 || (animator.GetCurrentAnimatorStateInfo(0).IsName("plaguedoctor_suction_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)))
@@ -103,35 +105,26 @@ public class PlagueDoctorController : MonoBehaviour
         }
 
         //detiene el path finding al player cuando el skeleton esta siendo atacado
-        if (isStuned || _sight.getTarget() == null || (_sight.GetDistance() < 4f && _sight.GetDistance() != 100f))
+        else if (isStuned)
         {
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
         }
 
-        if (_sight.GetDistance() < 4f && !isStuned)
+        else if (!isStuned && (_sight.GetDistance() < 4f && _sight.GetDistance() != 100f))
         {
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
             animator.SetFloat("Attack", 1);
         }
+    }
 
-        // if (_sight.GetDistance() >= 4.5f && !isStuned)
-        // {
-        //     animator.SetFloat("Walk", 0);
-        //     _pathFinding.StopFollow();
-        // }
-
-        // if (_sight.GetDistance() >= 4.5f && !isStuned && _sight.getTarget() != null)
-        // {
-        //     animator.SetFloat("Attack", 1);
-        // }
-
-        // if (_sight.GetDistance() < 2.5f && !isStuned && _sight.getTarget() != null)
-        // {
-        //     Debug.Log("Huyamosss");
-        //     _pathFinding.RunFromPlayer();
-        //     animator.SetFloat("Walk", 1);
-        // }
+    private void Wander()
+    {
+        if (!isStuned && _sight.getTarget() == null)
+        {
+            _pathFinding.WanderAbout(0.2f);
+            animator.SetFloat("Walk", 1);
+        }
     }
 }
