@@ -47,27 +47,11 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(dir.normalized*dist);
         transform.Rotate(angle.normalized*rotationSpeed);
         
-        animator.SetFloat("Walk", Mathf.Abs(horizontal)+Mathf.Abs(vertical));
-        WalkAudio();
+        animator.SetFloat("Walk", (Mathf.Abs(horizontal)+Mathf.Abs(vertical))/2);
 
-        if (jump > 0)
-        {
-            animator.SetTrigger("Jump");
-        }
-    }
-
-    void WalkAudio()
-    {
-        // audioData.Play(0);
-        // if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        // if (jump > 0)
         // {
-        //     Debug.Log("Suena");
-        //     audioData.UnPause();
-        // } 
-        // if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-        // {
-        //     Debug.Log("Para");
-        //     audioData.Pause();
-        // } 
+        //     animator.SetTrigger("Jump");
+        // }
     }
 }
