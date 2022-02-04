@@ -14,6 +14,16 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Velocidad de la rotacion del personaje en grados/s")]
     private float rotationSpeed; 
 
+    AudioSource audioData;
+    Animator animator;
+
+    private void Awake() {
+        animator = GetComponent<Animator>();
+    }
+
+    private void Start() {
+        audioData = GetComponent<AudioSource>();
+    }
     void Update()
     {
         //cambio en la distancia en un seg
@@ -37,11 +47,27 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(dir.normalized*dist);
         transform.Rotate(angle.normalized*rotationSpeed);
         
-        GetComponent<Animator>().SetFloat("Walk", Mathf.Abs(horizontal)+Mathf.Abs(vertical));
+        animator.SetFloat("Walk", Mathf.Abs(horizontal)+Mathf.Abs(vertical));
+        WalkAudio();
 
         if (jump > 0)
         {
-            GetComponent<Animator>().SetTrigger("Jump");
+            animator.SetTrigger("Jump");
         }
+    }
+
+    void WalkAudio()
+    {
+        // audioData.Play(0);
+        // if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        // {
+        //     Debug.Log("Suena");
+        //     audioData.UnPause();
+        // } 
+        // if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        // {
+        //     Debug.Log("Para");
+        //     audioData.Pause();
+        // } 
     }
 }

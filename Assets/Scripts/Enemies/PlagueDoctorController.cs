@@ -31,7 +31,11 @@ public class PlagueDoctorController : MonoBehaviour
         suctionControl();
         attackControl();
         stunControl();
-        _sight.FaceTarget();
+
+        if (_sight.GetDistance() < 100)
+        {
+            _sight.FaceTarget();
+        }
     }
 
     //Se llama cuando un gameobject con collider tipo trigger entra en contacto con el collider

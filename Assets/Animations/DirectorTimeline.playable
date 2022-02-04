@@ -505,7 +505,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: 3.533333333333333
-    m_BlendOutDuration: 2.5425925925925945
+    m_BlendOutDuration: 3.7166666666666686
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -565,15 +565,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: March of immortals
   - m_Version: 1
-    m_Start: 15.74074074074074
+    m_Start: 14.566666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 9132514732815281807}
-    m_Duration: 63.11736961451247
+    m_Duration: 60.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: 287565358157910991}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.5425925925925945
+    m_BlendInDuration: 3.7166666666666686
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -765,4 +765,4 @@ MonoBehaviour:
   m_Loop: 1
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 0.75
+    volume: 0.95
