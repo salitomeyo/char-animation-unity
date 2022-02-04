@@ -11,9 +11,12 @@ public class SkeletonController : MonoBehaviour
     private PathFinding _pathFinding;
     private bool isStuned;
 
+    private Kill _kill;
+
     private void Awake() {
         _sight = GetComponentInParent<Sight>();
         _pathFinding = GetComponentInParent<PathFinding>();
+        _kill = GetComponentInParent<Kill>();
     }
 
     // Start is called before the first frame update
@@ -57,6 +60,15 @@ public class SkeletonController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other) {
+        if (other.name == "SuctionCollider")
+        {
+            stopSuction = 0;
+            animator.SetFloat("Suction", 0);
+            isStuned = false;
+        }
+    }
+
     //Controla el reset de la animacion de stun
     private void stunControl()
     {
@@ -76,6 +88,11 @@ public class SkeletonController : MonoBehaviour
             animator.SetFloat("Suction", 0);
             isStuned = false;
             stopSuction = 0;
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("skeleton_dead_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.98)
+        {
+            _kill.SelfDestroy();
         }
     }
 
