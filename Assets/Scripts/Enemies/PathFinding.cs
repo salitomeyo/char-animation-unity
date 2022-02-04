@@ -30,6 +30,11 @@ public class PathFinding : MonoBehaviour
         agent.transform.Translate((randomDestination*2.5f));
     }
 
+    public void WanderAbout() {
+        Vector3 direct = new Vector3(transform.position.x+Random.Range(-3f, 3f), transform.position.y, transform.position.z+Random.Range(-3f, 3f));
+        agent.SetDestination(direct);
+    }
+
     //Elimina el destino, detiene al enemigo
     public void StopFollow()
     {

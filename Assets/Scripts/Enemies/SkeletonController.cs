@@ -22,6 +22,7 @@ public class SkeletonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("Wander", 1, 4);
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -90,6 +91,13 @@ public class SkeletonController : MonoBehaviour
             stopSuction = 0;
         }
 
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("skeleton_dead_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98 && _sight.getTarget() == null)
+        {
+            animator.SetFloat("Suction", 0);
+            isStuned = false;
+            stopSuction = 0;
+        }
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("skeleton_dead_anim") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.98)
         {
             _kill.SelfDestroy();
@@ -114,17 +122,26 @@ public class SkeletonController : MonoBehaviour
         }
 
         //detiene el path finding al player cuando el skeleton esta siendo atacado
-        if (isStuned || _sight.getTarget() == null || (_sight.GetDistance() < 1f && _sight.GetDistance() != 100f))
+        else if (isStuned)
         {
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
         }
 
-        if (_sight.GetDistance() < 1f && !isStuned)
+        else if (!isStuned && (_sight.GetDistance() < 1f && _sight.GetDistance() != 100f))
         {
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
             animator.SetFloat("Attack", 1);
+        }
+    }
+
+    private void Wander()
+    {
+        if (!isStuned && _sight.getTarget() == null)
+        {
+            _pathFinding.WanderAbout();
+            animator.SetFloat("Walk", 1);
         }
     }
 }
