@@ -65,4 +65,7 @@ Para divertirse con este juego hay dos opciones, correrlo directamente en su equ
 - [Juan Pablo Ciro](https://github.com/JCiroLo)
 - [Ana Osorio](https://github.com/ana-os-mo)
 
-![succionGif](ReadmeFiles/succión.gif "succionGif")
+<p align="center">
+  <img src="ReadmeFiles/succión.gif" alt="succionGif" width="50%"/>
+</p>
+
