@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
             if (shootingDelay == 0)
             {
                 GetComponent<Animator>().SetTrigger("Stun");
-                shootingDelay = Time.time+1.7f;
+                shootingDelay = Time.time+1.2f;
                 isShooting = true;
             }
         }

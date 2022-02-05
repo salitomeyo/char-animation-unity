@@ -49,9 +49,7 @@ public class PlayerMovement : MonoBehaviour
         
         animator.SetFloat("Walk", (Mathf.Abs(horizontal)+Mathf.Abs(vertical))/2);
 
-        // if (jump > 0)
-        // {
-        //     animator.SetTrigger("Jump");
-        // }
+        animator.SetFloat("velocityX", horizontal*40);
+        animator.SetFloat("velocityY", vertical*40);
     }
 }

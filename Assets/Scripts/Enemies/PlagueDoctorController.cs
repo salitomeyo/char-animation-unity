@@ -9,12 +9,17 @@ public class PlagueDoctorController : MonoBehaviour
     float stopSuction = 0;
     private Sight _sight;
     private PathFinding _pathFinding;
+    private PlayerShooting _playerShooting;
     private bool isStuned;
     private bool isRunning;
+    private bool isShooting;
+
+    private float shootingDelay;
 
     private void Awake() {
         _sight = GetComponentInParent<Sight>();
         _pathFinding = GetComponentInParent<PathFinding>();
+        _playerShooting = GetComponentInParent<PlayerShooting>();
     }
 
     // Start is called before the first frame update
@@ -116,6 +121,22 @@ public class PlagueDoctorController : MonoBehaviour
             _pathFinding.StopFollow();
             animator.SetFloat("Walk", 0);
             animator.SetFloat("Attack", 1);
+
+            if ( (animator.GetCurrentAnimatorStateInfo(0).IsName("attack_1") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))){ 
+                shootingDelay = Time.time+1.6f;
+                isShooting = true;
+            }
+            if (isShooting)
+            {
+                if (Time.time > shootingDelay)
+                {
+                    _playerShooting.createBullet();
+                    isShooting = false;
+                    shootingDelay = 0;
+                    animator.SetFloat("Attack", 0);
+                }
+            }
+            // Invoke("Shoot", 5);
         }
     }
 
@@ -126,5 +147,10 @@ public class PlagueDoctorController : MonoBehaviour
             _pathFinding.WanderAbout(0.2f);
             animator.SetFloat("Walk", 1);
         }
+    }
+
+    private void Shoot()
+    {
+        _playerShooting.createBullet();
     }
 }

@@ -117,12 +117,6 @@ public class SkeletonController : MonoBehaviour
 
     private void walkControl()
     {
-        // if ((animator.GetCurrentAnimatorStateInfo(0).IsName("walk") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && !animator.IsInTransition(0)))
-        // {
-        //     animator.SetFloat("Walk", 0);
-        //     Invoke("Walk", 0.001f);
-        // }
-
         //Si el player o alguno de sus ataques entra en el rango de vision activa el path finding a la posicion del player
         if (_sight.getTarget() != null && !isStuned && _sight.GetDistance() > 1f && _sight.GetDistance() != 100f)
         {
