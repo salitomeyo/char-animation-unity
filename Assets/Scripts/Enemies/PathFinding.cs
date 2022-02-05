@@ -31,6 +31,7 @@ public class PathFinding : MonoBehaviour
         Vector3 randomDestination = new Vector3((Mathf.Cos(randomAngle)*direct.x-Mathf.Sin(randomAngle)*direct.z), direct.y, (Mathf.Sin(randomAngle)*direct.x+Mathf.Cos(randomAngle)*direct.z));
         //Translada (teletransporta) al gameObject en la direccion de randomDestination
         agent.transform.Translate((randomDestination*2.5f));
+        _sight.FaceTarget();
     }
 
     public void WanderAbout(float wanderRadio)

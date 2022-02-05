@@ -144,7 +144,7 @@ public class PlagueDoctorController : MonoBehaviour
     {
         if (!isStuned && _sight.getTarget() == null)
         {
-            _pathFinding.WanderAbout(0.2f);
+            _pathFinding.WanderAbout(0.5f);
             animator.SetFloat("Walk", 1);
         }
     }

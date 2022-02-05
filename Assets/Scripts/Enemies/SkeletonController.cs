@@ -149,6 +149,7 @@ public class SkeletonController : MonoBehaviour
         {
             _pathFinding.WanderAbout(3);
             animator.SetFloat("Walk", 1);
+            animator.SetFloat("Attack", 0);
         }
     }
 }
