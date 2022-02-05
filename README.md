@@ -1,6 +1,6 @@
 # Luigi's Mansion - Mecánica de succión
 
-![Imagen](ReadmeFiles/test_image.png "Imagen")
+![Imagen](ReadmeFiles/imagenPrincipal.png "Imagen")
 
 Este repositorio contiene el proyecto final de la asignatura **Introducción a la Creación de Videojuegos**. Consiste en un prototipo que simula la mecánica de succión del personaje principal del juego **Luigi’s Mansion**. Dicho prototipo se desarrolló usando `Unity 2021.1.12f1` con la plantilla `Universal Render Pipeline (URP)`. Cabe destacar que se intentó realizar las animaciones desde cero usando el paquete del unity registry [Animation Rigging](https://docs.unity3d.com/Packages/com.unity.animation.rigging@1.0/manual/index.html).
 
@@ -55,7 +55,7 @@ Para divertirse con este juego hay dos opciones, correrlo directamente en su equ
 <details>
   <summary> Controles </summary>
   
-  Para iniciar... moverse... magia-magia...
+  ![Controles](ReadmeFiles/Controls.png "Controles")
   
 </details>
 
@@ -65,4 +65,4 @@ Para divertirse con este juego hay dos opciones, correrlo directamente en su equ
 - [Juan Pablo Ciro](https://github.com/JCiroLo)
 - [Ana Osorio](https://github.com/ana-os-mo)
 
-![Video](ReadmeFiles/test_gif.gif "Video")
+![succionGif](ReadmeFiles/succión.gif "succionGif")
