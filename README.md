@@ -41,7 +41,9 @@ Para divertirse con este juego hay dos opciones, correrlo directamente en su equ
 <details>
   <summary> Descargar release </summary>
   
-  Instrucciones de descarga y puesta en marcha...
+  Al entrar al repositorio puede ver los releases en la parte derecha de la pantalla. De click en el release más actual (latest) y a continuación descargue el archivo    Luigi.s_Mansion_prototype.zip.
+  Descomprima en un folder el archivo descargado y ejecute el Luigi-mansion.exe.
+  Para salir del juego use Ctrl+F4.
   
 </details>
 
@@ -53,7 +55,7 @@ Para divertirse con este juego hay dos opciones, correrlo directamente en su equ
 </details>
 
 <details>
-  <summary> Controles </summary>
+  <summary> Controles de juego </summary>
   
   ![Controles](ReadmeFiles/Controls.png "Controles")
   
